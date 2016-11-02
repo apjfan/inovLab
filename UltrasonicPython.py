@@ -38,9 +38,9 @@ while loop==1:
 #__ To turn on LED if the distance be less than 10.0
 
         if dis<10.0:
-            GPIO.output(Led,GPIO.LOW)
-        else:
             GPIO.output(Led,GPIO.HIGH)
+        else:
+            GPIO.output(Led,GPIO.LOW)
         time.sleep(.1)
 GPIO.cleanup()
 #__ End of the program
