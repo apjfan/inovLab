@@ -10,7 +10,7 @@ GPIO.setwarnings(False)
 #__ Assigning pins ___
 led = 18
 data = 7
-lightRange = 160000 #__ Assigning light range as 160000 .You can change it as requirment
+lightRange = 160000 #__ Assigning light range as 160000 .You can change it as requirement
 GPIO.setup(led,GPIO.OUT)
 
 #__Function to read data from LDR sensor
