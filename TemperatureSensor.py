@@ -22,9 +22,9 @@ def readRawData():
     lines = temp_raw()
     checkLine = lines[1].find('t=') # __ checkLine is data string __
     if checkLine != -1:
-    string = lines[1].strip()[checkLine + 2:]
-    celcious = float(string)/1000.0 # __ Data is to be divided by 1000.0
-    print (celcious)
+        string = lines[1].strip()[checkLine + 2:]
+        celcious = float(string)/1000.0 # __ Data is to be divided by 1000.0
+        print (celcious)
 while True:
     readRawData()
     time.sleep(1)
