@@ -18,13 +18,13 @@ def rawDataFromFile():
 def readRawData():
     lines = rawDataFromFile()
     while lines[0].strip()[-3:] != 'YES':
-    time.sleep(0.2)
-    lines = temp_raw()
+            time.sleep(0.2)
+            lines = temp_raw()
     checkLine = lines[1].find('t=') # __ checkLine is data string __
     if checkLine != -1:
-        string = lines[1].strip()[checkLine + 2:]
-        celcious = float(string)/1000.0 # __ Data is to be divided by 1000.0
-        print (celcious)
+            string = lines[1].strip()[checkLine + 2:]
+            celcious = float(string)/1000.0 # __ Data is to be divided by 1000.0
+            print (celcious)
 while True:
     readRawData()
     time.sleep(1)
