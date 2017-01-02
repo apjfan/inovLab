@@ -1,5 +1,7 @@
 //...https://www.youtube.com/watch?v=xa_2W-Oh-ls
 //...http://microcontrollerslab.com/heart-beat-sensor-arduino/
+//...https://www.youtube.com/watch?v=dzV2IehmhR0
+//...https://www.youtube.com/watch?v=2_c0yE9QHNI
 
 int led_Pin = 13;                                      // initializing the led pin
 int output_Pin = A0;                                // initializing the sensor output pin
