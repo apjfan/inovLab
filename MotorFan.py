@@ -1,3 +1,4 @@
+//....https://business.tutsplus.com/tutorials/controlling-dc-motors-using-python-with-a-raspberry-pi--cms-20051
 import RPi.GPIO as GPIO
 from time import sleep
  
