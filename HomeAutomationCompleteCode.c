@@ -2,7 +2,7 @@
 #define RFIDoutput 11
 #define ldrDataPin A0
 #define LDRoutput 12
-#define ULTRAoutput 6
+#define ULTRAoutput 10
 #define trigPin 9
 #define echoPin 5
 SoftwareSerial RFID=SoftwareSerial(2, 3); // RX and TX
@@ -29,14 +29,15 @@ void RFIDsetup(){
   strArray[1]="24948484851535568695766493";
   strArray[2]="25155484852657054515666513";
   pinMode(RFIDoutput,OUTPUT);
-  digitalWrite(RFIDoutput,0);
+  //digitalWrite(RFIDoutput,1);
 }
 void LDRsetup(){
   pinMode(LDRoutput,OUTPUT);
-  digitalWrite(LDRoutput,0);  
+  //digitalWrite(LDRoutput,1);  
 }
 void ULTRAsetup(){
     pinMode(trigPin,OUTPUT);
+    pinMode(ULTRAoutput,OUTPUT);
     pinMode(echoPin,INPUT);  
 }
 void getRfidData(){
@@ -60,20 +61,20 @@ void getRfidData(){
             //getUltraData();//............
             if(chk==0){
                      for(j=0;j<5;j++){
-                        digitalWrite(RFIDoutput,1);
+                        digitalWrite(RFIDoutput,0);
                         delay(10);
-                        //digitalWrite(RFIDoutput,0);
+                        //digitalWrite(RFIDoutput,1);
                         //delay(50);
  //                       getLdrData();//........
    //                     getUltraData;//..........
                      }
                   Serial.println("Access denied!");
                   fin="";
-                  //delay(100);
-                  digitalWrite(RFIDoutput,0);
+                  delay(100);
+                  digitalWrite(RFIDoutput,1);
             }
             else{
-                  digitalWrite(RFIDoutput,0); 
+                  digitalWrite(RFIDoutput,1); 
                   fin="";
                  // delay(10);
             }
@@ -96,13 +97,13 @@ void getLdrData(){
   ldrData = analogRead(ldrDataPin);
   Serial.println(ldrData);
   if(ldrData<50){
-    digitalWrite(LDRoutput,1);
+    digitalWrite(LDRoutput,0);
     //getRfidData();
     //delay(100);
     getUltraData();
   }
   else
-    digitalWrite(LDRoutput,0);
+    digitalWrite(LDRoutput,1);
    // delay(100);
 }
 void getUltraData(){
@@ -114,12 +115,14 @@ void getUltraData(){
   digitalWrite(trigPin, LOW);
   dura = pulseIn(echoPin, HIGH);
   dis = (dura / 2.0) * 0.0344;
-  if (dis<= 20){
+  if (dis<= 20.0){
     digitalWrite(ULTRAoutput,1);
+    delay(100);
   }
   else {
     digitalWrite(ULTRAoutput,0);
+    delay(100);
   }  
   Serial.println(dis);
-  delay(500);
+  //delay(100);
 }
