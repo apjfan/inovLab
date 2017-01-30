@@ -99,7 +99,9 @@ void getRfidData(){
                   //ser.write(90);
                   //delay(100);
                   ser.write(180);
+                  digitalWrite(RFIDoutput,1);
                   delay(500);
+                  
                   cnt=0;
     }
 }
@@ -126,11 +128,12 @@ void getLdrData(){
   if(ldrData<50){
     digitalWrite(LDRoutput,0);
      //ser.write(0);
-     ////delay(1000);
+    delay(100);
    // getRfidData();
   }
   else
     digitalWrite(LDRoutput,1);
+    delay(100);
 }
 void getUltraData(){
   float dura, dis;
@@ -157,11 +160,11 @@ void getUltraData(){
 void getFlameData(){
    flameValue=analogRead(flameDataPin);
    if(flameValue<100){
-   digitalWrite(FLAMEoutput,1);
+   digitalWrite(FLAMEoutput,0);
    delay(100); 
    }  
    else{
-    digitalWrite(FLAMEoutput,0);
+    digitalWrite(FLAMEoutput,1);
     delay(100);
     }
 }
